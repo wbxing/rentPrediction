@@ -24,8 +24,7 @@ test.columns = ["id", "time", 'estate', 'rentRatio', 'height', 'heightRatio', 'a
                 'status', 'bedroom', 'hall', 'toilet', 'wholeRent', 'district', 'location',
                 'subwayLine', 'subwayStation', 'distance', 'decoration']
 
-# print(train_data.shape)
-# print(train_data.head(10))
+
 # 处理训练数据
 # 删除小区名为零的行
 train_data = train_data[train_data.estate != 0]
@@ -36,9 +35,7 @@ train_data = train_data[train_data.area != 0]
 # 删除租金为零的行
 train_data = train_data[train_data.rent != 0]
 
-# print(train_data.shape)
-# train_data.to_csv('dataset/train1.csv', index=False)
-# print(train_data.iloc[:, 6:12].describe())
+
 # 填充缺省值
 train_data['status'].fillna(train_data['status'].mean(), inplace=True)
 train_data['rentRatio'].fillna(train_data['rentRatio'].mean(), inplace=True)
@@ -72,7 +69,7 @@ tmp = tmp.str.get_dummies()
 tmp.columns = ['east', 'northeast', 'southeast', 'north', 'south', 'west', 'northwest', 'southwest']
 train = pd.concat([train_data, tmp], axis=1)
 train.drop('orient', axis=1, inplace=True)
-# train.to_csv('dataset/train2.csv', index=False)
+train.to_csv('dataset/train2.csv', index=False)
 print(train.shape)
 
 tmp1 = test['orient'].map(foo)
