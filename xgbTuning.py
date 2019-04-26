@@ -21,7 +21,7 @@ X_train, X_test, y_train, y_true = train_test_split(train_X, train_Y, test_size=
 true_list = y_true.tolist()
 
 # 参数调优
-params = [1800, 2000, 2200, 2500, 2800, 3000]
+params = [1800, 2000, 2200, 2500, 2800]
 for param in params:
     print(param)
     model = xgb.XGBRegressor(n_estimators=param,
