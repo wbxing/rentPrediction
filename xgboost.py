@@ -16,7 +16,7 @@ test = pd.read_csv("dataset/test2.csv")
 train_X = train.drop('rent', axis=1)
 train_Y = train.loc[:, 'rent']
 
-model = XGBRegressor(learning_rate=0.1,
+model = XGBRegressor(learning_rate=0.01,
                      n_estimators=2800,
                      max_depth=12,
                      gamma=0.05,
